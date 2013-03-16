@@ -37,6 +37,11 @@ $header_height: 160px;
 	width:25%;
 	top:$header_height;
 
+	input[type=text] {
+		width:auto;
+		margin-right:4em;
+	}
+
 }
 
 #map {
@@ -49,11 +54,18 @@ $header_height: 160px;
 }
 
 .themes {
+
 	position:absolute;
 	right:0;
 	top:$header_height;
 	width:18%;
 	bottom:0;
+
+	overflow-x:auto;
+
+	.content {
+		width:100%;
+
 	.thumbnails > li {
 		margin-left:0;
 	}
@@ -61,6 +73,7 @@ $header_height: 160px;
 	h4 {
 		padding:0;
 		margin:0;
+	}
 	}
 }
 

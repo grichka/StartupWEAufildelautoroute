@@ -4,3 +4,15 @@
     margin: 50px auto 0 auto;
     width: 300px;
 }
+#header_site {
+	width:100%;
+	h1 {
+		background:url(../images/header_site.png) no-repeat center;
+		background-size:contain;
+		max-width:1002px;
+		width:auto;
+		height:160px;
+		text-indent:-50em;
+		margin:0.5em auto 0.5em auto;
+	}
+}

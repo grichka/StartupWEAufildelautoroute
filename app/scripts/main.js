@@ -19,7 +19,7 @@ require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
         iconUrl: 'images/canard.png',
         iconSize: [38, 42],
         iconAnchor: [38/2, 42],
-        popupAnchor: [18, -21]
+        popupAnchor: [0, -42]
     });
 
     var map = L.map('map', {
@@ -62,7 +62,6 @@ require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
 
     $('#wonderfullGoButton').click(function(e) {
         e.preventDefault();
-
         map.setView([43.39931,6.360294], 12);
     });
     

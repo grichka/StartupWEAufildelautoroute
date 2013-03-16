@@ -54,10 +54,27 @@ require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
     L.marker([43.474847,6.514009], {icon: canard}).addTo(map)
     .bindPopup('Château Sainte-Roseline')
     ;//.openPopup();
+    
+    // add a marker for La Fourchette Gourmande, Le Cannet Des Maures - Restaurant
+    L.marker([43.390875,6.342639], {icon: canard}).addTo(map)
+    .bindPopup('La Fourchette Gourmande, Le Cannet Des Maures')
+    ;//.openPopup();
 
     $('#wonderfullGoButton').click(function(e) {
         e.preventDefault();
-
-        map.setView([43.480826,6.278687], 9);
+        map.setView([43.39931,6.360294], 12);
+    });
+    
+    
+    $('.theme').click(function(e){
+        if($(this).hasClass('theme_selected')) {
+            $(this).removeClass('theme_selected');
+            $(this).find('.btn').removeClass('btn-primary');
+            $(this).find('.btn').addClass('disabled');
+        } else {
+            $(this).addClass('theme_selected');
+            $(this).find('.btn').addClass('btn-primary');
+            $(this).find('.btn').removeClass('disabled');
+        }
     });
 });

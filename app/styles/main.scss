@@ -73,7 +73,7 @@ overflow-x: hidden;
 		padding:0 1em 0.5em 0em;
 
 		.thumbnails {
-			margin:0;		
+			margin:0;
 		}	
 		.thumbnails > li {
 			margin-left:0;
@@ -86,3 +86,15 @@ overflow-x: hidden;
 	}
 }
 
+.theme {
+    opacity:0.5;
+    
+    .thumbnail {
+        width: 71px;
+        height: 84px;
+    }
+}
+
+.theme_selected {
+    opacity:1;
+}

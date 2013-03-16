@@ -63,7 +63,7 @@ require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
     $('#wonderfullGoButton').click(function(e) {
         e.preventDefault();
 
-        map.setView([43.480826,6.278687], 6);
+        map.setView([43.39931,6.360294], 12);
     });
     
     

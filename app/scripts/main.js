@@ -20,13 +20,14 @@ require.config({
 
 require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (app, $) {
 
-    $('.alertswitch').on('switch-change', function (e, data) {
-        alert('OK');
+    console.log($('.alertswitch'));
+    $('.switch').on('switch-change', function (e, data) {
         var $el = $(data.el)
           , value = data.value;
         
         if($el.parents('.theme').hasClass('theme_selected')) {
-            alert('OK' + value);
+            // alert('OK' + value);
+            $el.bootstrapSwitch('setState', value);
         } else {
             $el.bootstrapSwitch('setState', value);
         }
@@ -34,7 +35,10 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
 
     var canard = L.icon({
         iconUrl: 'images/canard.png',
+        shadowUrl: 'images/marker-shadow.png',
         iconSize: [38, 42],
+        shadowSize: [55,55],
+        shadowAnchor: [20, 55],
         iconAnchor: [38/2, 42],
         popupAnchor: [0, -42]
     });
@@ -120,6 +124,7 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
     });
     
     $('.theme').click(function(e){
+        $(this).find('.switch').bootstrapSwitch('toggleState');
         if($(this).hasClass('theme_selected')) {
             $(this).removeClass('theme_selected');
         } else {

@@ -50,4 +50,10 @@ require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
     L.marker([43.474847,6.514009], {icon: canard}).addTo(map)
     .bindPopup('Château Sainte-Roseline')
     ;//.openPopup();
+
+    $('#wonderfullGoButton').click(function(e) {
+        e.preventDefault();
+
+        map.setView([43.480826,6.278687], 6);
+    });
 });

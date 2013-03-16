@@ -18,7 +18,7 @@ require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
     var canard = L.icon({
         iconUrl: 'images/canard.png',
         iconSize: [38, 42],
-        iconAnchor: [0, 21],
+        iconAnchor: [38/2, 42],
         popupAnchor: [18, -21]
     });
 

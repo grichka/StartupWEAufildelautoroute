@@ -28,10 +28,4 @@ require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
             })
             ]
     });
-
-    $('#wonderfullGoButton').click(function(e) {
-        e.preventDefault();
-
-        map.setView([43.480826,6.278687], 6);
-    });
 });

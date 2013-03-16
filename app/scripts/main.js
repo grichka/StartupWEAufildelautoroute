@@ -27,6 +27,10 @@ require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
         zoom: 5,
         attributionControl: false,
         layers: [
+            L.tileLayer('http://{s}.tile.cloudmade.com/3d8eea6648df4f66aa555d92e0a6e6b1/997/256/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                maxZoom: 18
+            }),
             L.tileLayer('tilesmap/{z}/{x}/{y}.png', {
                 attribution: 'OpenStreetMap contributors - Wikipedia contributors - AirFrance',
                 //maxZoom: 6,

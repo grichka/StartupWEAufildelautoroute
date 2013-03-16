@@ -90,8 +90,8 @@ overflow-x: hidden;
     opacity:0.5;
     
     .thumbnail {
-        width: 71px;
-        height: 84px;
+        max-width: 71px;
+        max-height: 84px;
     }
 }
 

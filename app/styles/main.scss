@@ -11,7 +11,7 @@ $iconWhiteSpritePath:     "../images/glyphicons-halflings-white.png";
 body {
 	width:100%;
 }
-$header_height: 160px;
+$header_height: 170px;
 
 #header_site {
 	width:100%;
@@ -20,9 +20,9 @@ $header_height: 160px;
 		background-size:contain;
 		max-width:1002px;
 		width:auto;
-		height:$header_height;
+		height:$header_height+-10px;
 		text-indent:-50em;
-		margin:0 auto 0 auto;
+		margin:0 auto 10px auto;
 	}
 }
 
@@ -38,8 +38,7 @@ $header_height: 160px;
 	top:$header_height;
 
 	input[type=text] {
-		width:auto;
-		margin-right:4em;
+		width:75%;
 	}
 
 }
@@ -61,19 +60,25 @@ $header_height: 160px;
 	width:18%;
 	bottom:0;
 
-	overflow-x:auto;
+	overflow-y: auto;
+overflow-x: hidden; 
+-webkit-overflow-scrolling: touch;
 
 	.content {
-		width:100%;
-
-	.thumbnails > li {
-		margin-left:0;
-	}
-
-	h4 {
-		padding:0;
 		margin:0;
-	}
+		padding:0 1em 0.5em 0em;
+
+		.thumbnails {
+			margin:0;		
+		}	
+		.thumbnails > li {
+			margin-left:0;
+		}
+
+		h4 {
+			padding:0;
+			margin:0;
+		}
 	}
 }
 

@@ -3,10 +3,15 @@ require.config({
         jquery: '../components/jquery/jquery',
         bootstrap: 'vendor/bootstrap',
         leaflet: 'vendor/leaflet',
+        bootstrapSwitch: 'vendor/bootstrapSwitch'
         
     },
     shim: {
         bootstrap: {
+            deps: ['jquery'],
+            exports: 'jquery'
+        },
+        bootstrapSwitch: {
             deps: ['jquery'],
             exports: 'jquery'
         }
@@ -14,6 +19,18 @@ require.config({
 });
 
 require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (app, $) {
+
+    $('.alertswitch').on('switch-change', function (e, data) {
+        alert('OK');
+        var $el = $(data.el)
+          , value = data.value;
+        
+        if($el.parents('.theme').hasClass('theme_selected')) {
+            alert('OK' + value);
+        } else {
+            $el.bootstrapSwitch('setState', value);
+        }
+    });
 
     var canard = L.icon({
         iconUrl: 'images/canard.png',
@@ -65,16 +82,12 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
         map.setView([43.39931,6.360294], 12);
     });
     
-    
     $('.theme').click(function(e){
         if($(this).hasClass('theme_selected')) {
             $(this).removeClass('theme_selected');
-            $(this).find('.btn').removeClass('btn-primary');
-            $(this).find('.btn').addClass('disabled');
         } else {
             $(this).addClass('theme_selected');
-            $(this).find('.btn').addClass('btn-primary');
-            $(this).find('.btn').removeClass('disabled');
         }
     });
+    
 });

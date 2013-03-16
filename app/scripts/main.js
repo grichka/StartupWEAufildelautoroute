@@ -13,7 +13,7 @@ require.config({
     }
 });
 
-require(['app', 'jquery', 'leaflet', 'bootstrap'], function (app, $) {
+require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (app, $) {
 
     var canard = L.icon({
         iconUrl: 'images/canard.png',

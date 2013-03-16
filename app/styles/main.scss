@@ -11,18 +11,22 @@ $iconWhiteSpritePath:     "../images/glyphicons-halflings-white.png";
 body {
 	width:100%;
 }
-$header_height: 170px;
+$header_height: 162px;
+
+$header_margin_top: 20px;
+$header_margin_bottom: 30px;
+$header_margin_total: $header_margin_top + $header_margin_bottom;
 
 #header_site {
 	width:100%;
 	h1 {
 		background:url(../images/header_site.png) no-repeat center;
 		background-size:contain;
-		max-width:1002px;
+		max-width:1013px;
 		width:auto;
-		height:$header_height+-10px;
+		height:$header_height+-$header_margin_total;
 		text-indent:-50em;
-		margin:0 auto 10px auto;
+		margin:$header_margin_top auto $header_margin_bottom auto;
 	}
 }
 

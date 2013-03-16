@@ -11,9 +11,11 @@
         <!-- <meta name="viewport" content="width=device-width"> -->
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="styles/main.css">
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
+        <link rel="stylesheet" href="styles/leaflet.css">
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="styles/leaflet.ie.css" />
+        <![endif]-->
+
     </head>
     <body>
         <div id="header_site"><h1>Au fil de l'Autoroute</h1></div>
@@ -21,16 +23,26 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-        <div class="row-fluid">
-            <div class="span4 form well well-small">
-                forw de gauche
+            <div class="userform">
+                <div class="content">
+                    forw de gauche
+                    coucou canard
+                    <br/>
+                    j'aime les lapins
+                </div>
             </div>
 
-            <div class="span5 map">super map</div>
+            <div id="map">
+            </div>
 
-            <div class="span3 themes">
-                <div class="span10 offset1">
+            <div class="themes">
+                <div class="content">
                     <ul class="thumbnails">
+                        <li class="paysages">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/200x180" alt=""/>
+                             </a>
+                        </li>
                         <li class="paysages">
                             <a href="#" class="thumbnail">
                                 <img src="http://placehold.it/200x180" alt=""/>

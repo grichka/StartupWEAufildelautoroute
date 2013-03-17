@@ -225,10 +225,12 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
         var _isSelected = false;
         if($(el).hasClass('btn-primary')) {
             $(el).removeClass('btn-primary');
+            $(el).html('Ne plus m\'avertir!');
             numSelectedMarkers++;
             _isSelected = true;
         } else {
             $(el).addClass('btn-primary');
+            $(el).html('M\'avertir!');
             numSelectedMarkers--;
         }
         
@@ -267,26 +269,31 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
             case "Nature":
                 if(natureMarks[elemPos].isSelected) {
                     $('#' + elemId).removeClass('btn-primary');
+                    $('#' + elemId).html('Ne plus m\'avertir!');
                 }
                 break;
             case "Hôtels":
                 if(hotelsMarks[elemPos].isSelected) {
                     $('#' + elemId).removeClass('btn-primary');
+                    $('#' + elemId).html('Ne plus m\'avertir!');
                 }
                 break;
             case "Terroir":
                 if(terroirMarks[elemPos].isSelected) {
                     $('#' + elemId).removeClass('btn-primary');
+                    $('#' + elemId).html('Ne plus m\'avertir!');
                 }
                 break;
             case "Patrimoine":
                 if(patrimoineMarks[elemPos].isSelected) {
                     $('#' + elemId).removeClass('btn-primary');
+                    $('#' + elemId).html('Ne plus m\'avertir!');
                 }
                 break;
             case "Restaurants":
                 if(restaurantsMarks[elemPos].isSelected) {
                     $('#' + elemId).removeClass('btn-primary');
+                    $('#' + elemId).html('Ne plus m\'avertir!');
                 }
                 break;
         }

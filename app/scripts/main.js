@@ -44,8 +44,8 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
     });
 
     var map = L.map('map', {
-        center: [46.619261,2.702637],
-        zoom: 5,
+        center: [46.319261,2.702637],
+        zoom: 6,
         attributionControl: false,
         layers: [
             L.tileLayer('http://{s}.tile.cloudmade.com/3d8eea6648df4f66aa555d92e0a6e6b1/997/256/{z}/{x}/{y}.png', {

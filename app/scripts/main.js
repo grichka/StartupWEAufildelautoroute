@@ -61,23 +61,60 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
             ]
     });
     
-    // add a marker for ABBAYE DU THORONET - patrimoine
-    L.marker([43,4501, 6,3081], {icon: canard}).addTo(map)
-    .bindPopup('ABBAYE DU THORONET')
-    ;//.openPopup();
+    var hotels = L.icon({
+        iconUrl: 'images/theme_hotels_35.png',
+        iconSize: [35, 42],
+        iconAnchor: [35/2, 42],
+        popupAnchor: [0, -42]
+    });
+    
+    var nature = L.icon({
+        iconUrl: 'images/theme_nature_35.png',
+        iconSize: [35, 42],
+        iconAnchor: [35/2, 42],
+        popupAnchor: [0, -42]
+    });
+    
+    var patrimoine = L.icon({
+        iconUrl: 'images/theme_patrimoine_35.png',
+        iconSize: [35, 42],
+        iconAnchor: [35/2, 42],
+        popupAnchor: [0, -42]
+    });
+    
+    var restau = L.icon({
+        iconUrl: 'images/theme_restau_35.png',
+        iconSize: [35, 42],
+        iconAnchor: [35/2, 42],
+        popupAnchor: [0, -42]
+    });
+    
+    var terroir = L.icon({
+        iconUrl: 'images/theme_terroir_35.png',
+        iconSize: [35, 42],
+        iconAnchor: [35/2, 42],
+        popupAnchor: [0, -42]
+    });
+    
+    
     
     // add a marker for LE CANNET DES MAURES - terroir
-    L.marker([43.403052,6.343506], {icon: canard}).addTo(map)
+    L.marker([43.403052,6.343506], {icon: patrimoine}).addTo(map)
     .bindPopup('LE CANNET DES MAURES')
     ;//.openPopup();
     
+    // add a marker for ABBAYE DU THORONET - patrimoine
+    L.marker([43.4608,6.263555], {icon: patrimoine}).addTo(map)
+    .bindPopup('ABBAYE DU THORONET')
+    ;//.openPopup();
+    
     // add a marker for Château Sainte-Roseline - terroir
-    L.marker([43.474847,6.514009], {icon: canard}).addTo(map)
+    L.marker([43.474847,6.514009], {icon: terroir}).addTo(map)
     .bindPopup('Château Sainte-Roseline')
     ;//.openPopup();
     
     // add a marker for La Fourchette Gourmande, Le Cannet Des Maures - Restaurant
-    L.marker([43.390875,6.342639], {icon: canard}).addTo(map)
+    L.marker([43.390875,6.342639], {icon: restau}).addTo(map)
     .bindPopup('La Fourchette Gourmande, Le Cannet Des Maures')
     ;//.openPopup();
 

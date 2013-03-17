@@ -229,13 +229,46 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
         }
         $("#numSelectedMarkers").html(numSelectedMarkers);
     }
-    
+   
+    var type = [
+    'hotels',
+    'nature',
+    'patrimoine',
+    'restau',
+    'terroir'
+    ],
+    grosType = {
+        'hotels' : hotelsMarks,
+        'nature': natureMarks,
+        'patrimoine': patrimoineMarks,
+        'restau': restaurantsMarks,
+        'terroir': terroirMarks
+    },
+    grosIcon = {
+        'hotels' : hotels,
+        'nature': nature,
+        'patrimoine': patrimoine,
+        'restau': restau,
+        'terroir': terroir
+    };
+
+    var randInt = function(min, max){
+        return Math.floor(Math.random()*(max-min))+min;
+    };
+
     map.on('popupopen', function(e) {
         alert(e);
         console.log(e);
         /*if(patrimoineMarks[pos].isSelected()) {
             $('#Patrimoine_' + pos).removeClass('btn-primary');
         }*/
+    }).on('click', function(e) {
+        var genre = type[randInt(0, type.length)],
+            icon = grosIcon[genre];
+
+            console.log(icon);
+
+        grosType[genre].push(L.marker(e.latlng, {icon: icon}).addTo(map));
     });
 
 });

@@ -52,20 +52,45 @@
                         </fieldset>
                     </form>
                     <p class="alert alert-info">
-                        <span class="badge badge-info">42</span> points pauses sélectionés
+                        <span class="badge badge-info" id="numSelectedMarkers">0</span> points pauses sélectionnés
                     </p>
                     <p class="alert alert-info">
                         <span class="badge badge-info">12</span> sorties d'autoroute
                     </p>
+                    
+    					<a href="#myModal" class="btn btn-block" role="button" data-toggle="modal"><img src="images/picto_save.png" alt="save" style="height:50px; margin-right:10px;"/>Enregistrer ma planification</a>
+    					<!-- Modal -->
+                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="myModalLabel">Enregistrer ma planification</h3>
+                          </div>
+                          <div class="modal-body">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label" for="input_nom_planification">Nom de ma planification</label>
+                                    <div class="controls">
+                                        <div class="input-prepend">
+                                            <span class="add-on"><i class="icon-tag"></i></span>
+                                            <input id="input_nom_planification" type="text" placeholder="Nom de ma planification" style="width:100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+                            <button class="btn btn-primary" data-dismiss="modal">Enregistrer</button>
+                          </div>
+                        </div>
+                        
                     <form action="">
-    					<button type="submit" class="btn btn-block"><img src="images/picto_save.png" alt="save" style="height:50px; margin-right:10px;"/>Enregistrer ma planification</button>
-    				</form>
-    				<form action="">
     					<button type="submit" class="btn btn-block"><img src="images/picto_print.png" alt="save" style="height:50px; margin-right:10px;"/>Imprimer ma planification</button>
     				</form>
     				<form action="">
     					<button type="submit" class="btn btn-block"><img src="images/picto_share.png" alt="save" style="height:50px; margin-right:10px;"/>Partager ma planification</button>
     				</form>
+    				
                 </div>
             </div>
 
@@ -156,9 +181,33 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-
+        
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="components/requirejs/require.js"></script>
         <!-- endbuild -->
+        
+        <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+        
+        <script type="text/javascript">
+    		/*
+(function(d, s, id) {
+    		  var js, fjs = d.getElementsByTagName(s)[0];
+    		  if (d.getElementById(id)) return;
+    		  js = d.createElement(s); js.id = id;
+    		  
+    		  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+    		  fjs.parentNode.insertBefore(js, fjs);
+    		}(document, 'script', 'facebook-jssdk'));
+*/
+    		
+    		var testFb = function(d, s, id) {
+    		  var js, fjs = d.getElementsByTagName(s)[0];
+    		  if (d.getElementById(id)) return;
+    		  js = d.createElement(s); js.id = id;
+    		  
+    		  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+    		  fjs.parentNode.insertBefore(js, fjs);
+    		};
+    	</script>
 </body>
 </html>

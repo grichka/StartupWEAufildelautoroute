@@ -1,0 +1,130 @@
+<html>
+<head>
+	<title>AWay - Démo StreetView</title>
+    <link rel="stylesheet" href="styles/main.css">
+	<style type="text/css" media="screen">
+#vue_gauche, #vue_droite, #controls {
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}	
+
+#vue_gauche {
+	right:50%;
+}
+#vue_droite {
+	left:50%;
+}
+#pause {
+	margin-bottom:10px;
+}
+p {
+	color:white;
+}
+#controls {
+	background: rgba(0,0,0,0.9);
+	top:auto;
+	height: 140px;
+	box-shadow: 0px 0px 50px rgba(0,0,0,0.5);
+	padding: 1em;
+}
+.textarea {
+	position: absolute;
+left: 50%;
+top: 60px;
+}
+
+textarea {
+	width:300px;
+}
+	</style>
+</head>
+<body>
+	<div id="vue_gauche"></div>
+	<div id="vue_droite"></div>
+
+	<div id="controls">
+		<a href="#" class="btn btn-inverse btn-block" id="pause">Pause</a>
+
+		<p>
+			Nom :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" />
+		</p>
+		<p>
+			Latitude : &nbsp;&nbsp;&nbsp;<input type="text" id="input_lat" />
+		</p>
+		<p>
+			Longitude : <input type="text" id="input_lon" />
+		</p>
+		<p class="textarea">
+			Description : <textarea rows="4"></textarea>
+		</p>
+	</div>
+
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="/components/jquery/jquery.js"></script>
+	<script type="text/javascript">
+	if (window['google'] == undefined || google['maps'] == undefined) return alert('Google maps library is required');
+
+	var gauche = new google.maps.StreetViewPanorama(document.getElementById('vue_gauche')),
+		droite = new google.maps.StreetViewPanorama(document.getElementById('vue_droite'));
+
+
+	gauche.setPov({
+		heading: -10,
+		zoom:1,
+		pitch:0
+	});
+	droite.setPov({
+		heading: 170,
+		zoom:1,
+		pitch:0
+	});
+
+	var alat = 43.470612,
+		alon = 5.682335,
+		blat = 43.469864,
+		blon = 5.662766,
+		lat = alat,
+		lon = blon,
+
+		pluslat = (alat-blat)/333,
+		pluslon = (alon-blon)/333;
+
+	var ll = new google.maps.LatLng(lat, lon);
+
+	gauche.setPosition(ll);
+	droite.setPosition(ll);
+	var pause = false;
+
+	var input_lat = $('#input_lat'),
+		input_lon = $('#input_lon');
+
+	window.setInterval(function() {
+		if (!pause) {
+
+			lat += pluslat;
+			lon += pluslon;
+
+			input_lat.attr('value', lat);
+			input_lon.attr('value', lon);
+
+			var ll = new google.maps.LatLng(lat, lon);
+
+			gauche.setPosition(ll);
+			droite.setPosition(ll);
+		}
+	}, 250);
+
+	$('#pause').click(function(e) {
+		e.preventDefault();
+
+		pause = !pause;
+		$(this).text(pause ? 'Lecture' : 'Pause');
+	});
+
+
+	</script>
+</body>
+</html>

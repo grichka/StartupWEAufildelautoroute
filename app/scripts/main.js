@@ -126,10 +126,8 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
     // add a marker for La Fourchette Gourmande, Le Cannet Des Maures - Restaurant
     pos = 0;
     restaurantsMarks.push(L.marker([43.390875,6.342639], {icon: restau}).addTo(map)
-    .bindPopup('La Fourchette Gourmande, Le Cannet Des Maures')
+    .bindPopup('<div><div><center><h1>La Fourchette Gourmande</h1></center></div><div><p>Le Cannet des Maures</p></div><div><img src="./images/like.png" /><button class="btn btn-primary pull-right selectedState" id="Restaurants_' + pos + '" onClick="markerSelected(this, \'Restaurants\',' + pos + ');">M\'avertir !</button><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thoronet.monuments-nationaux.fr/" data-counturl="http://thoronet.monuments-nationaux.fr/" data-text="#abbayeduthoronet" data-size="large" data-count="horizontal"></a></br><div id="fb-like-button" class="fb-like" data-href="https://www.facebook.com/pages/Abbaye-du-Thoronet/121318334590703" data-send="false" data-layout="button_count" data-width="" data-show-faces="false" style=" height: 26px; padding-bottom: 13px; "></div></div>', {minWidth:500})
     );
-    
-    testFb(document, 'script', 'facebook-jssdk');
     
     updatePointPause("Nature", false);
     updatePointPause("Hôtels", false);
@@ -158,11 +156,61 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
         
         if($el.parents('.theme').hasClass('theme_selected')) {
             $el.bootstrapSwitch('setState', value);
-            if(value) {
-                //updatePointPause($el.parents('.theme').find('h4').html(), true);
-            } else {
-                //updatePointPause($el.parents('.theme').find('h4').html(), false);
+            var elemTheme = $el.parents('.theme').find('h4').html();
+            switch(elemTheme) {
+                case "Nature":
+                    for(var elemPos in natureMarks) {
+                        natureMarks[elemPos].isSelected = value;
+                        if(value) {
+                            numSelectedMarkers++;
+                        } else {
+                            numSelectedMarkers--;
+                        }
+                    }
+                    break;
+                case "Hôtels":
+                    for(var elemPos in hotelsMarks) {
+                        hotelsMarks[elemPos].isSelected = value;
+                        if(value) {
+                            numSelectedMarkers++;
+                        } else {
+                            numSelectedMarkers--;
+                        }
+                    }
+                    break;
+                case "Terroir":
+                    for(var elemPos in terroirMarks) {
+                        terroirMarks[elemPos].isSelected = value;
+                        if(value) {
+                            numSelectedMarkers++;
+                        } else {
+                            numSelectedMarkers--;
+                        }
+                    }
+                    break;
+                case "Patrimoine":
+                    for(var elemPos in patrimoineMarks) {
+                        patrimoineMarks[elemPos].isSelected = value;
+                        if(value) {
+                            numSelectedMarkers++;
+                        } else {
+                            numSelectedMarkers--;
+                        }
+                    }
+                    break;
+                case "Restaurants":
+                    for(var elemPos in restaurantsMarks) {
+                        restaurantsMarks[elemPos].isSelected = value;
+                        if(value) {
+                            numSelectedMarkers++;
+                        } else {
+                            numSelectedMarkers--;
+                        }
+                    }
+                    break;
             }
+            
+            $("#numSelectedMarkers").html(numSelectedMarkers);
         } else {
             $el.bootstrapSwitch('setState', false);
         }
@@ -259,7 +307,33 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
         
         $("#numSelectedMarkers").html(numSelectedMarkers);
     }
-    
+   
+    var type = [
+    'hotels',
+    'nature',
+    'patrimoine',
+    'restau',
+    'terroir'
+    ],
+    grosType = {
+        'hotels' : hotelsMarks,
+        'nature': natureMarks,
+        'patrimoine': patrimoineMarks,
+        'restau': restaurantsMarks,
+        'terroir': terroirMarks
+    },
+    grosIcon = {
+        'hotels' : hotels,
+        'nature': nature,
+        'patrimoine': patrimoine,
+        'restau': restau,
+        'terroir': terroir
+    };
+
+    var randInt = function(min, max){
+        return Math.floor(Math.random()*(max-min))+min;
+    };
+
     map.on('popupopen', function(e) {
         var elemId = $(e.popup._content).find('.selectedState').attr('id');
         var elemIdSplit = elemId.split('_');
@@ -297,6 +371,13 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
                 }
                 break;
         }
+    }).on('click', function(e) {
+        var genre = type[randInt(0, type.length)],
+            icon = grosIcon[genre];
+
+            console.log(icon);
+
+        grosType[genre].push(L.marker(e.latlng, {icon: icon}).addTo(map));
     });
 
 });

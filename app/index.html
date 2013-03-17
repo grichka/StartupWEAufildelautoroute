@@ -65,6 +65,7 @@
     				<form action="">
     					<button type="submit" class="btn btn-block"><img src="images/picto_share.png" alt="save" style="height:50px; margin-right:10px;"/>Partager ma planification</button>
     				</form>
+    				
                 </div>
             </div>
 
@@ -155,9 +156,33 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-
+        
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="components/requirejs/require.js"></script>
         <!-- endbuild -->
+        
+        <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+        
+        <script type="text/javascript">
+    		/*
+(function(d, s, id) {
+    		  var js, fjs = d.getElementsByTagName(s)[0];
+    		  if (d.getElementById(id)) return;
+    		  js = d.createElement(s); js.id = id;
+    		  
+    		  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+    		  fjs.parentNode.insertBefore(js, fjs);
+    		}(document, 'script', 'facebook-jssdk'));
+*/
+    		
+    		var testFb = function(d, s, id) {
+    		  var js, fjs = d.getElementsByTagName(s)[0];
+    		  if (d.getElementById(id)) return;
+    		  js = d.createElement(s); js.id = id;
+    		  
+    		  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+    		  fjs.parentNode.insertBefore(js, fjs);
+    		};
+    	</script>
 </body>
 </html>

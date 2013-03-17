@@ -6,87 +6,172 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Au fil de l'Autoroute</title>
+        <title>AWay</title>
         <meta name="description" content="">
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <!-- <meta name="viewport" content="width=device-width"> -->
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="favicon" href="images/apple-touch-icon.png">
         <link rel="stylesheet" href="styles/main.css">
-        <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
 
         <link rel="stylesheet" href="styles/leaflet.css">
+        <link rel="stylesheet" href="styles/bootstrapSwitch.css">
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="styles/leaflet.ie.css" />
         <![endif]-->
     </head>
     <body>
-        <div id="header_site"><h1>Au fil de l'Autoroute</h1></div>
+        <div id="header_site">
+        <h1>Au fil de l'Autoroute</h1>
+        <center>
+            	<div class="row well well-small" style="width:100%; background:#E3E2DC url('images/back_form.png') right top repeat-y">
+            		<div class="span2">
+            			<div class="control-group" style="margin-bottom:0px">
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on"><label for="input_depart"><i class="icon-road"></i></label></span>
+                                    <input id="input_depart" type="text" placeholder="Départ" style="width:100px">
+                                </div>
+                            </div>
+                        </div>
+            			<div class="control-group" style="margin-bottom:0px">
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on"><label for="input_arrivee"><i class="icon-road"></i></label></span>
+                                    <input id="input_arrivee" type="text" placeholder="Arrivée" style="width:100px">
+                                </div>
+                            </div>
+                        </div>
+            		</div>
+            		<div class="span1">
+            			<a class="btn btn-primary" id="wonderfullGoButton" style="font-weight:bold">Go!</a>
+            		</div>
+            		<div class="span4">
+		        		<p class="alert alert-info" style="background-color:rgba(255,255,255,0.8); border-color:white">
+		                    <span class="badge badge-info" id="numSelectedMarkers">0</span> points pauses sélectionnés
+	                    </p>
+              		</div>
+              		<div class="span3">
+	                    <p class="alert alert-info" style="background-color:rgba(255,255,255,0.8); border-color:white">
+		                    <span class="badge badge-info">12</span> sorties d'autoroute
+		                </p>
+            		</div>
+            		<div style="margin-right:100px; margin-top:5px; float:right">
+            			<a href="#myModal" role="button" data-toggle="modal" class="btn"><img src="images/picto_save.png" alt="save" style="height:50px"></a>
+    					<!-- Modal -->
+                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="myModalLabel">Enregistrer ma planification</h3>
+                          </div>
+                          <div class="modal-body">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label" for="input_nom_planification">Nom de ma planification</label>
+                                    <div class="controls">
+                                        <div class="input-prepend">
+                                            <span class="add-on"><i class="icon-tag"></i></span>
+                                            <input id="input_nom_planification" type="text" placeholder="Nom de ma planification" style="width:100%">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+                            <button class="btn btn-primary" data-dismiss="modal">Enregistrer</button>
+                          </div>
+                        </div>
+    					<a href="#" class="btn"><img src="images/picto_print.png" alt="save" style="height:50px"></a>
+    					<a href="#" class="btn"><img src="images/picto_share.png" alt="save" style="height:50px"></a>
+            		</div>
+            	</div>
+            </center>
+
+        	
+        </div>
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-            <div class="userform">
-                <div class="content">
-                    forw de gauche
-                    coucou canard
-                    <br>
-                    j'aime les lapins
-                </div>
-            </div>
+            
 
             <div id="map">
             </div>
 
             <div class="themes">
                 <div class="content">
-                    <ul class="thumbnails"><h2>Thèmes</h2>
-                        <li class="paysages">
-                            <a href="#" class="thumbnail">
-                                <img src="http://placehold.it/200x180" alt="">
-                             </a>
-                             <div class="caption">
-                                
-                                <p><a href="#" class="btn btn-primary">M'alerter pour tous les points pauses</a></p>
-                              </div>
+                    <ul class="thumbnails"><h3>Thèmes</h3>
+                        <li class="theme nature">
+                            <h4>Nature</h4>
+                            <div class="row-fluid">
+                                <a href="#" class="img-rounded span5">
+                                    <img src="./images/theme_nature.png" alt="">
+                                 </a>
+                                 <div class="span7">
+                                    <p>M'alerter pour tout ce thème</p>
+                                     <div class="switch">
+                                        <input class="alertswitch" type="checkbox">
+                                     </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="theme hotels">
                             <h4>Hôtels</h4>
-                            <i class="icon-search pull-right"></i>
-                            <a href="#" class="thumbnail">
-                                <img src="http://placehold.it/200x180" alt="">
-                             </a>
-                             <div class="caption">
-                                <p><a href="#" class="btn btn-primary">M'alerter pour tous les points pauses</a></p>
-                              </div>
+                            <div class="row-fluid">
+                                <a href="#" class="img-rounded span5">
+                                    <img src="./images/theme_hotels.png" alt="">
+                                 </a>
+                                 <div class="span7">
+                                    <p>M'alerter pour tout ce thème</p>
+                                     <div class="switch">
+                                        <input class="alertswitch" type="checkbox">
+                                     </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="theme terroir">
                             <h4>Terroir</h4>
-                            <i class="icon-search pull-right"></i>
-                            <a href="#" class="thumbnail">
-                                <img src="http://placehold.it/200x180" alt="">
-                             </a>
-                             <div class="caption">
-                                <p><a href="#" class="btn btn-primary">M'alerter pour tous les points pauses</a></p>
-                              </div>
+                            <div class="row-fluid">
+                                <a href="#" class="img-rounded span5">
+                                    <img src="./images/theme_terroir.png" alt="">
+                                 </a>
+                                 <div class="span7">
+                                    <p>M'alerter pour tout ce thème</p>
+                                     <div class="switch">
+                                        <input class="alertswitch" type="checkbox">
+                                     </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="theme patrimoine">
                             <h4>Patrimoine</h4>
-                            <i class="icon-search pull-right"></i>
-                            <a href="#" class="thumbnail">
-                                <img src="http://placehold.it/200x180" alt="">
-                             </a>
-                             <div class="caption">
-                                <p><a href="#" class="btn btn-primary">M'alerter pour tous les points pauses</a></p>
-                              </div>
+                            <div class="row-fluid">
+                                <a href="#" class="img-rounded span5">
+                                    <img src="./images/theme_patrimoine.png" alt="">
+                                 </a>
+                                 <div class="span7">
+                                    <p>M'alerter pour tout ce thème</p>
+                                     <div class="switch">
+                                        <input class="alertswitch" type="checkbox">
+                                     </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="theme restaurants">
                             <h4>Restaurants</h4>
-                            <i class="icon-search pull-right"></i>
-                            <a href="#" class="thumbnail">
-                                <img src="http://placehold.it/200x180" alt="">
-                             </a>
-                             <div class="caption">
-                                <p><a href="#" class="btn btn-primary">M'alerter pour tous les points pauses</a></p>
-                              </div>
+                            <div class="row-fluid">
+                                <a href="#" class="img-rounded span5">
+                                    <img src="./images/theme_restau.png" alt="">
+                                 </a>
+                                 <div class="span7">
+                                    <p>M'alerter pour tout ce thème</p>
+                                     <div class="switch">
+                                        <input class="alertswitch" type="checkbox">
+                                     </div>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -99,7 +184,9 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-
+        
         <script data-main="scripts/main" src="components/requirejs/require.js"></script>
+        
+        <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 </body>
 </html>

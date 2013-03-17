@@ -1,0 +1,9 @@
+{
+    "description": "Carte du projet Startup Weekend", 
+    "bounds": "-21.0937,34.0162,24.2578,58.8137", 
+    "minzoom": "0", 
+    "version": "1.0.0", 
+    "template": "", 
+    "maxzoom": "11", 
+    "name": "Au fil de l'autoroute"
+}

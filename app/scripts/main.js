@@ -137,7 +137,7 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
 
     $('#wonderfullGoButton').click(function(e) {
         e.preventDefault();
-        map.setView([43.39931,6.360294], 12)
+        map.setView([43.428988,3.377197], 7)
     });
     
     $('.theme').click(function(e){

@@ -14,7 +14,7 @@
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
         <link rel="favicon" href="images/apple-touch-icon.png" />
         <link rel="stylesheet" href="styles/main.css">
-        <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 
         <link rel="stylesheet" href="styles/leaflet.css">
         <link rel="stylesheet" href="styles/bootstrapSwitch.css">
@@ -23,42 +23,43 @@
         <![endif]-->
     </head>
     <body>
-        <div id="header_site"><h1>Au fil de l'Autoroute</h1></div>
-
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-            <div class="userform">
-                <div class="content">
-                    <form action="">
-                        <fieldset>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <div class="input-prepend">
-                                        <span class="add-on"><label for="input_depart"><i class="icon-road"></i></label></span>
-                                        <input id="input_depart" type="text" placeholder="Départ">
-                                    </div>
+        <div id="header_site">
+        <h1>Au fil de l'Autoroute</h1>
+        <center>
+            	<div class="row well well-small" style="width:100%; background:#E3E2DC url('images/back_form.png') right top repeat-y;"">
+            		<div class="span2">
+            			<div class="control-group" style="margin-bottom:0px;">
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on"><label for="input_depart"><i class="icon-road"></i></label></span>
+                                    <input id="input_depart" type="text" placeholder="Départ" style="width:100px;">
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <div class="input-prepend">
-                                        <span class="add-on"><label for="input_arrivee"><i class="icon-road"></i></label></span>
-                                        <input id="input_arrivee" type="text" placeholder="Arrivée">
-                                    </div>
+                        </div>
+            			<div class="control-group" style="margin-bottom:0px;">
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on"><label for="input_arrivee"><i class="icon-road"></i></label></span>
+                                    <input id="input_arrivee" type="text" placeholder="Arrivée" style="width:100px;">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-large" style="" id="wonderfullGoButton">Go !</button>
-                        </fieldset>
-                    </form>
-                    <p class="alert alert-info">
-                        <span class="badge badge-info" id="numSelectedMarkers">0</span> points pauses sélectionnés
-                    </p>
-                    <p class="alert alert-info">
-                        <span class="badge badge-info">12</span> sorties d'autoroute
-                    </p>
-                    
-    					<a href="#myModal" class="btn btn-block" role="button" data-toggle="modal"><img src="images/picto_save.png" alt="save" style="height:50px; margin-right:10px;"/>Enregistrer ma planification</a>
+                        </div>
+            		</div>
+            		<div class="span1">
+            			<a class="btn btn-primary" id="pause"style="font-weight:bold;">Go!</a>
+            		</div>
+            		<div class="span4">
+		        		<p class="alert alert-info" style="background-color:rgba(255,255,255,0.8); border-color:white;">
+		                    <span class="badge badge-info" id="numSelectedMarkers">0</span> points pauses sélectionnés
+	                    </p>
+              		</div>
+              		<div class="span3">
+	                    <p class="alert alert-info" style="background-color:rgba(255,255,255,0.8); border-color:white;">
+		                    <span class="badge badge-info">12</span> sorties d'autoroute
+		                </p>
+            		</div>
+            		<div style="margin-right:100px; margin-top:5px; float:right;">
+            			<a href="#myModal" role="button" data-toggle="modal" class="btn"><img src="images/picto_save.png" alt="save" style="height:50px;"/></a>
     					<!-- Modal -->
                         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                           <div class="modal-header">
@@ -83,16 +84,19 @@
                             <button class="btn btn-primary" data-dismiss="modal">Enregistrer</button>
                           </div>
                         </div>
-                        
-                    <form action="">
-    					<button type="submit" class="btn btn-block"><img src="images/picto_print.png" alt="save" style="height:50px; margin-right:10px;"/>Imprimer ma planification</button>
-    				</form>
-    				<form action="">
-    					<button type="submit" class="btn btn-block"><img src="images/picto_share.png" alt="save" style="height:50px; margin-right:10px;"/>Partager ma planification</button>
-    				</form>
-    				
-                </div>
-            </div>
+    					<a href="#" class="btn"><img src="images/picto_print.png" alt="save" style="height:50px;"/></a>
+    					<a href="#" class="btn"><img src="images/picto_share.png" alt="save" style="height:50px;"/></a>
+            		</div>
+            	</div>
+            </center>
+
+        	
+        </div>
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+            
 
             <div id="map">
             </div>

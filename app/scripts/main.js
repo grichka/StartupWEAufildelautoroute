@@ -52,35 +52,50 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
         iconUrl: 'images/theme_hotels_35.png',
         iconSize: [35, 42],
         iconAnchor: [35/2, 42],
-        popupAnchor: [0, -42]
+        popupAnchor: [0, -42],
+        shadowUrl: 'images/marker-shadow.png',
+        shadowSize: [55,55],
+        shadowAnchor: [20, 55]
     });
     
     var nature = L.icon({
         iconUrl: 'images/theme_nature_35.png',
         iconSize: [35, 42],
         iconAnchor: [35/2, 42],
-        popupAnchor: [0, -42]
+        popupAnchor: [0, -42],
+        shadowUrl: 'images/marker-shadow.png',
+        shadowSize: [55,55],
+        shadowAnchor: [20, 55]
     });
     
     var patrimoine = L.icon({
         iconUrl: 'images/theme_patrimoine_35.png',
         iconSize: [35, 42],
         iconAnchor: [35/2, 42],
-        popupAnchor: [0, -42]
+        popupAnchor: [0, -42],
+        shadowUrl: 'images/marker-shadow.png',
+        shadowSize: [55,55],
+        shadowAnchor: [20, 55]
     });
     
     var restau = L.icon({
         iconUrl: 'images/theme_restau_35.png',
         iconSize: [35, 42],
         iconAnchor: [35/2, 42],
-        popupAnchor: [0, -42]
+        popupAnchor: [0, -42],
+        shadowUrl: 'images/marker-shadow.png',
+        shadowSize: [55,55],
+        shadowAnchor: [20, 55]
     });
     
     var terroir = L.icon({
         iconUrl: 'images/theme_terroir_35.png',
         iconSize: [35, 42],
         iconAnchor: [35/2, 42],
-        popupAnchor: [0, -42]
+        popupAnchor: [0, -42],
+        shadowUrl: 'images/marker-shadow.png',
+        shadowSize: [55,55],
+        shadowAnchor: [20, 55]
     });
     
     var natureMarks = [];
@@ -88,37 +103,24 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
     var terroirMarks = [];
     var patrimoineMarks = [];
     var restaurantsMarks = [];
-    
-    var MyCustomMarker = L.Marker.extend({
         
-        setSelected: function (sel) {
-            this._isSelected = sel;
-        },
-        
-        isSelected: function() {
-            return this._isSelected;
-        }
-    });
-    
     var pos;
-    var marker;
-    var popup;
     // add a marker for ABBAYE DU THORONET - patrimoine
     pos = 0;
     patrimoineMarks.push(L.marker([43.4608,6.263555], {icon: patrimoine}).addTo(map)
-    .bindPopup('<div><div><center><h1>ABBAYE DU THORONET</h1></center></div><div><center><img src="./images/abbaye.jpg" style="width:80%;" /></center></div><div><p>Le Thoronet est l\'une des plus remarquables abbayes cistercienne du XIIe siècle nichée dans des collines où règnent le chêne vert, le pin, les oliviers et les vignes.</p><h3>Horaires sous réserve</h3><p><ul><li>Ouvert tous les jours</li><li>1er avril au 30 septembre, 10h à 18h30 (10h à 12h et 14h à 18h30 le dimanche)</li><li>1er octobre au 31 mars, 10h à 13h et 14h à 17h (10h à 12h et 1 4h à 17h le dimanche)</li><li>Fermé: 1er janvier, 1er mai, 1er et 11 novembre, 25 décembre</li></ul></p></div><div><img src="./images/like.png" /><button class="btn btn-primary pull-right" id="Patrimoine_' + pos + '" onClick="markerSelected(this, \'Patrimoine\',' + pos + ');">M\'avertir !</button><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thoronet.monuments-nationaux.fr/" data-counturl="http://thoronet.monuments-nationaux.fr/" data-text="#abbayeduthoronet" data-size="large" data-count="horizontal"></a></br><div id="fb-like-button" class="fb-like" data-href="https://www.facebook.com/pages/Abbaye-du-Thoronet/121318334590703" data-send="false" data-layout="button_count" data-width="" data-show-faces="false" style=" height: 26px; padding-bottom: 13px; "></div></div>', {minWidth:500})
+    .bindPopup('<div><div><center><h1>ABBAYE DU THORONET</h1></center></div><div><center><img src="./images/abbaye.jpg" style="width:80%;" /></center></div><div><p>Le Thoronet est l\'une des plus remarquables abbayes cistercienne du XIIe siècle nichée dans des collines où règnent le chêne vert, le pin, les oliviers et les vignes.</p><h3>Horaires sous réserve</h3><p><ul><li>Ouvert tous les jours</li><li>1er avril au 30 septembre, 10h à 18h30 (10h à 12h et 14h à 18h30 le dimanche)</li><li>1er octobre au 31 mars, 10h à 13h et 14h à 17h (10h à 12h et 1 4h à 17h le dimanche)</li><li>Fermé: 1er janvier, 1er mai, 1er et 11 novembre, 25 décembre</li></ul></p></div><div><img src="./images/like.png" /><button class="btn btn-primary pull-right selectedState" id="Patrimoine_' + pos + '" onClick="markerSelected(this, \'Patrimoine\',' + pos + ');">M\'avertir !</button><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thoronet.monuments-nationaux.fr/" data-counturl="http://thoronet.monuments-nationaux.fr/" data-text="#abbayeduthoronet" data-size="large" data-count="horizontal"></a></br><div id="fb-like-button" class="fb-like" data-href="https://www.facebook.com/pages/Abbaye-du-Thoronet/121318334590703" data-send="false" data-layout="button_count" data-width="" data-show-faces="false" style=" height: 26px; padding-bottom: 13px; "></div></div>', {minWidth:500})
     );
     
     // add a marker for LE CANNET DES MAURES - terroir
     pos = 0;
     terroirMarks.push(L.marker([43.403052,6.343506], {icon: terroir}).addTo(map)
-    .bindPopup('<div><div><center><h1>LE CANNET DES MAURES</h1></center></div><div><center><img src="./images/cannetdesmaures.jpg" style="width:80%;" /></center></div><div><p>Le Vieux Cannet est perché sur une butte de 127 mètres d’altitude et en contrebas, le village moderne et commercial s’organise autour d’un parc de cèdres centenaires.<p><h3>ECONOMIE</h3><p>La société Meilland est une entreprise d\'horticulture d\'envergure internationale, dans la création et l\'obtention de roses. Elle emploie 200 salariés en France et 600 dans le monde. Et reste une société familiale à 100%. La sixième génération est d\'ores et déjà au travail.</p></div><div><img src="./images/like.png" /><button class="btn btn-primary pull-right" onClick="markerSelected(this, \'Terroir\',' + pos + ');">M\'avertir !</button><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thoronet.monuments-nationaux.fr/" data-counturl="http://thoronet.monuments-nationaux.fr/" data-text="#abbayeduthoronet" data-size="large" data-count="horizontal"></a></br><div id="fb-like-button" class="fb-like" data-href="https://www.facebook.com/pages/Abbaye-du-Thoronet/121318334590703" data-send="false" data-layout="button_count" data-width="" data-show-faces="false" style=" height: 26px; padding-bottom: 13px; "></div></div>', {minWidth:500})
+    .bindPopup('<div><div><center><h1>LE CANNET DES MAURES</h1></center></div><div><center><img src="./images/cannetdesmaures.jpg" style="width:80%;" /></center></div><div><p>Le Vieux Cannet est perché sur une butte de 127 mètres d’altitude et en contrebas, le village moderne et commercial s’organise autour d’un parc de cèdres centenaires.<p><h3>ECONOMIE</h3><p>La société Meilland est une entreprise d\'horticulture d\'envergure internationale, dans la création et l\'obtention de roses. Elle emploie 200 salariés en France et 600 dans le monde. Et reste une société familiale à 100%. La sixième génération est d\'ores et déjà au travail.</p></div><div><img src="./images/like.png" /><button class="btn btn-primary pull-right selectedState" id="Terroir_' + pos + '" onClick="markerSelected(this, \'Terroir\',' + pos + ');">M\'avertir !</button><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thoronet.monuments-nationaux.fr/" data-counturl="http://thoronet.monuments-nationaux.fr/" data-text="#abbayeduthoronet" data-size="large" data-count="horizontal"></a></br><div id="fb-like-button" class="fb-like" data-href="https://www.facebook.com/pages/Abbaye-du-Thoronet/121318334590703" data-send="false" data-layout="button_count" data-width="" data-show-faces="false" style=" height: 26px; padding-bottom: 13px; "></div></div>', {minWidth:500})
     );
     
     // add a marker for Château Sainte-Roseline - terroir
     pos = 1;
     terroirMarks.push(L.marker([43.474847,6.514009], {icon: terroir}).addTo(map)
-    .bindPopup('<div><div><center><h1>Château Sainte-Roseline</h1></center></div><div><center><img src="./images/sainteroseline.jpg" style="width:80%;" /></center></div><div><p>Le Château Sainte-Roseline n’est pas seulement un lieu de production de vin de Provence, le Château renferme tout un ensemble de trésors historiques et architecturaux liés à l’histoire de la région. La Chapelle Sainte Roseline en est le fleuron.</p></div><div><img src="./images/like.png" /><button class="btn btn-primary pull-right" onClick="markerSelected(this, \'Terroir\',' + pos + ');">M\'avertir !</button><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thoronet.monuments-nationaux.fr/" data-counturl="http://thoronet.monuments-nationaux.fr/" data-text="#abbayeduthoronet" data-size="large" data-count="horizontal"></a></br><div id="fb-like-button" class="fb-like" data-href="https://www.facebook.com/pages/Abbaye-du-Thoronet/121318334590703" data-send="false" data-layout="button_count" data-width="" data-show-faces="false" style=" height: 26px; padding-bottom: 13px; "></div></div>', {minWidth:500})
+    .bindPopup('<div><div><center><h1>Château Sainte-Roseline</h1></center></div><div><center><img src="./images/sainteroseline.jpg" style="width:80%;" /></center></div><div><p>Le Château Sainte-Roseline n’est pas seulement un lieu de production de vin de Provence, le Château renferme tout un ensemble de trésors historiques et architecturaux liés à l’histoire de la région. La Chapelle Sainte Roseline en est le fleuron.</p></div><div><img src="./images/like.png" /><button class="btn btn-primary pull-right selectedState" id="Terroir_' + pos + '" onClick="markerSelected(this, \'Terroir\',' + pos + ');">M\'avertir !</button><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thoronet.monuments-nationaux.fr/" data-counturl="http://thoronet.monuments-nationaux.fr/" data-text="#abbayeduthoronet" data-size="large" data-count="horizontal"></a></br><div id="fb-like-button" class="fb-like" data-href="https://www.facebook.com/pages/Abbaye-du-Thoronet/121318334590703" data-send="false" data-layout="button_count" data-width="" data-show-faces="false" style=" height: 26px; padding-bottom: 13px; "></div></div>', {minWidth:500})
     );
     
     // add a marker for La Fourchette Gourmande, Le Cannet Des Maures - Restaurant
@@ -220,22 +222,74 @@ require(['app', 'jquery', 'leaflet', 'bootstrap', 'bootstrapSwitch'], function (
     
     var numSelectedMarkers = 0;
     window.markerSelected = function(el, theme, pos) {
+        var _isSelected = false;
         if($(el).hasClass('btn-primary')) {
             $(el).removeClass('btn-primary');
             numSelectedMarkers++;
+            _isSelected = true;
         } else {
             $(el).addClass('btn-primary');
             numSelectedMarkers--;
         }
+        
+        var elemId = $(el).attr('id');
+        var elemIdSplit = elemId.split('_');
+        var elemTheme = elemIdSplit[0];
+        var elemPos = elemIdSplit[1];
+        
+        switch(elemTheme) {
+            case "Nature":
+                natureMarks[elemPos].isSelected = _isSelected;
+                break;
+            case "Hôtels":
+                hotelsMarks[elemPos].isSelected = _isSelected;
+                break;
+            case "Terroir":
+                terroirMarks[elemPos].isSelected = _isSelected;
+                break;
+            case "Patrimoine":
+                patrimoineMarks[elemPos].isSelected = _isSelected;
+                break;
+            case "Restaurants":
+                restaurantsMarks[elemPos].isSelected = _isSelected;
+                break;
+        }
+        
         $("#numSelectedMarkers").html(numSelectedMarkers);
     }
     
     map.on('popupopen', function(e) {
-        alert(e);
-        console.log(e);
-        /*if(patrimoineMarks[pos].isSelected()) {
-            $('#Patrimoine_' + pos).removeClass('btn-primary');
-        }*/
+        var elemId = $(e.popup._content).find('.selectedState').attr('id');
+        var elemIdSplit = elemId.split('_');
+        var elemTheme = elemIdSplit[0];
+        var elemPos = elemIdSplit[1];
+        switch(elemTheme) {
+            case "Nature":
+                if(natureMarks[elemPos].isSelected) {
+                    $('#' + elemId).removeClass('btn-primary');
+                }
+                break;
+            case "Hôtels":
+                if(hotelsMarks[elemPos].isSelected) {
+                    $('#' + elemId).removeClass('btn-primary');
+                }
+                break;
+            case "Terroir":
+                if(terroirMarks[elemPos].isSelected) {
+                    $('#' + elemId).removeClass('btn-primary');
+                }
+                break;
+            case "Patrimoine":
+                if(patrimoineMarks[elemPos].isSelected) {
+                    $('#' + elemId).removeClass('btn-primary');
+                }
+                break;
+            case "Restaurants":
+                if(restaurantsMarks[elemPos].isSelected) {
+                    $('#' + elemId).removeClass('btn-primary');
+                }
+                break;
+        }
     });
 
 });
